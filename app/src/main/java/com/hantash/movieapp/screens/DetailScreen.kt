@@ -17,11 +17,11 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 
 @Composable
-fun DetailScreen(navController: NavHostController) {
+fun DetailScreen(navController: NavHostController, movie: String?) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Movie Name") },
+                title = { Text(text = movie.toString()) },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = Color.White

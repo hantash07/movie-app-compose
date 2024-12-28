@@ -73,8 +73,7 @@ fun MainContent(modifier: Modifier, navController: NavController) {
         LazyColumn {
             items(items = movieList) { movie ->
                 MovieRow(movie, onItemClick = {
-                    navController.navigate(route = EnumScreens.DetailScreen.name)
-                    Log.d("app-debug", "Movie Name: $movie")
+                    navController.navigate(route = EnumScreens.DetailScreen.name + "/$movie")
                 })
             }
         }
