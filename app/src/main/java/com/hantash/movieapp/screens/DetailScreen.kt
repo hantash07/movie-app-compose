@@ -1,4 +1,45 @@
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package com.hantash.movieapp.screens
 
-class DetailScreen {
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+
+@Composable
+fun DetailScreen(navController: NavHostController) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "Movie Name") },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    titleContentColor = Color.White
+                )
+            )
+        },
+        content = { innerPadding ->
+            MovieContent(Modifier.padding(innerPadding), navController)
+        }
+    )
+}
+
+@Composable
+fun MovieContent(modifier: Modifier, navController: NavController) {
+    Surface(
+        modifier = modifier,
+        color = MaterialTheme.colorScheme.background
+    ) {
+        Text(text = "Movie Detail")
+    }
 }

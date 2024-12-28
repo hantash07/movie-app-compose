@@ -31,6 +31,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.hantash.movieapp.navigation.EnumScreens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -72,6 +73,7 @@ fun MainContent(modifier: Modifier, navController: NavController) {
         LazyColumn {
             items(items = movieList) { movie ->
                 MovieRow(movie, onItemClick = {
+                    navController.navigate(route = EnumScreens.DetailScreen.name)
                     Log.d("app-debug", "Movie Name: $movie")
                 })
             }
@@ -80,7 +82,7 @@ fun MainContent(modifier: Modifier, navController: NavController) {
 }
 
 @Composable
-fun MovieRow(movie: String, onItemClick : () -> Unit) {
+fun MovieRow(movie: String, onItemClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -90,8 +92,7 @@ fun MovieRow(movie: String, onItemClick : () -> Unit) {
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background),
         onClick = onItemClick,
-
-        ) {
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxSize(),
