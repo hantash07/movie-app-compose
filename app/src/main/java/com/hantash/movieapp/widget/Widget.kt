@@ -53,8 +53,7 @@ fun MovieRow(movie: Movie = getMovies().first(), onItemClick: () -> Unit = {}) {
         onClick = onItemClick,
     ) {
         Row(
-            modifier = Modifier
-                .fillMaxSize(),
+            modifier = Modifier,
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start
         ) {
