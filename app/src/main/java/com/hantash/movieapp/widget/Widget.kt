@@ -27,7 +27,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -46,7 +45,6 @@ fun MovieRow(movie: Movie = getMovies().first(), onItemClick: () -> Unit = {}) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
-//            .height(120.dp),
         shape = RoundedCornerShape(corner = CornerSize(8.dp)),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background),
@@ -60,25 +58,19 @@ fun MovieRow(movie: Movie = getMovies().first(), onItemClick: () -> Unit = {}) {
             Surface(
                 modifier = Modifier
                     .padding(8.dp)
-                    .size(80.dp),
-                shape = RectangleShape,
+                    .size(80.dp)
+                    .align(Alignment.Top),
+                shape = RoundedCornerShape(corner = CornerSize(8.dp)),
+
             ) {
                 Image(
+                    modifier = Modifier.fillMaxSize(),
                     painter = rememberAsyncImagePainter(
-                        model = movie.images.first()
+                        model = movie.images.first(),
                     ),
                     contentDescription = "Movie Image",
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.Crop,
                 )
-//                Icon(
-//                    imageVector = Icons.Default.AccountBox,
-//                    contentDescription = "Movie Image"
-//                )
-//                AsyncImage(
-//                    model = "https://images-na.ssl-images-amazon.com/images/M/MV5BMTMwNTg5MzMwMV5BMl5BanBnXkFtZTcwMzA2NTIyMw@@._V1_SX1777_CR0,0,1777,937_AL_.jpg",
-//                    contentDescription = "Movie Image"
-//                )
             }
             Column(
                 modifier = Modifier
