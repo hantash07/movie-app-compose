@@ -12,6 +12,9 @@ implement the basics of Jetpack Compose with Navigation Components.
 - Gradle Version Catalogs for managing dependencies in a scalable way
 - Coil Compose
 
+### Demonstration
+![Demo](assets/demo.gif)
+
 ### Installation
 - Clone the repository
   ```
